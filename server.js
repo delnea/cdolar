@@ -1,17 +1,11 @@
 const express = require('express');
-const scrape = require('./scraper');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', async (req, res) => {
-    try {
-        const data = await scrape();
-        res.json(data);
-    } catch (err) {
-        res.status(500).send('Error al scrapear');
-    }
+    res.send('Hola desde Puppeteer y Express en Reder!');
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
 });
